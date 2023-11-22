@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import BookList from './bookList.js';
 import AddBookForm from './addBookForm.js';
+import './App.css';
 
 
 function App() {
@@ -19,11 +20,17 @@ function App() {
     setBooks([...books, newBook]);   //...books forwards all of books props to the setBooks without listing each of their names.
   };
 
+  //removing a book
+
+  const removeBook = removedBookId => {
+    setBooks(books.filter(book => book.id !== removedBookId));    //updates book and only includes the ones that their id is not equal to the one we removed
+  };
+
 
   return (
     <div className="App">
       <Welcome />
-      <BookList books={books} />
+      <BookList books={books} removeBook={removeBook} />
       <AddBookForm addBook={addBook} />
     </div>
   );

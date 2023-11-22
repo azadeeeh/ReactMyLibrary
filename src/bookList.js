@@ -1,11 +1,14 @@
 
+//bookList responsible for printing titles and the x button beside them 
 
-const BookList = ({ books }) => {
+const BookList = ({ books, removeBook }) => {
 
 
     const bookList = books.map(book =>
-        <li key={book.id}>
-            {book.title}
+        <li className="items" key={book.id}>
+            {book.title} {' '}
+            <button onClick={() => removeBook(book.id)}>X</button>
+
 
         </li>
     );
@@ -13,6 +16,7 @@ const BookList = ({ books }) => {
         <div>
             <h2>Book List:</h2>
             <ul>{bookList}</ul>
+
         </div>
     );
 }
