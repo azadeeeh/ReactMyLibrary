@@ -6,6 +6,7 @@ const BookList = ({ books }) => {
     const bookList = books.map(book =>
         <li key={book.id}>
             {book.title}
+
         </li>
     );
     return (

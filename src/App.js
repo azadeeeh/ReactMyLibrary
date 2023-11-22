@@ -16,7 +16,7 @@ function App() {
 
   //adding new book
   const addBook = newBook => {
-    setBooks([...books, newBook]);   //getting all the existing books and the new one
+    setBooks([...books, newBook]);   //...books forwards all of books props to the setBooks without listing each of their names.
   };
 
 
