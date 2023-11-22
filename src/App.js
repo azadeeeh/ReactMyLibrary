@@ -1,19 +1,30 @@
+
+import React, { useState } from 'react';
 import BookList from './bookList.js';
-import booklist from './bookList.js';
+import AddBookForm from './addBookForm.js';
+
 
 function App() {
-  //making the BookList component to work dynamically by passing props to it
-  const books = [
+  //setting state changin const books to :
+  const [books, setBooks] = useState([
     { id: 1, title: 'Becoming' },
     { id: 2, title: 'Hello' },
     { id: 3, title: 'Python' },
     { id: 4, title: 'Java Script' },
 
-  ];
+  ]);
+
+  //adding new book
+  const addBook = newBook => {
+    setBooks([...books, newBook]);   //getting all the existing books and the new one
+  };
+
+
   return (
     <div className="App">
       <Welcome />
-      <BookList books={books} />    /
+      <BookList books={books} />
+      <AddBookForm addBook={addBook} />
     </div>
   );
 };
